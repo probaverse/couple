@@ -41,6 +41,7 @@ enframe_density(d1, d2, u = 1:9 / 10, v = 1:9 / 10)
 \seealso{
 Other distributional representations: 
 \code{\link{eval_cdf}()},
-\code{\link{eval_pmf}()}
+\code{\link{eval_pmf}()},
+\code{\link{eval_survival}()}
 }
 \concept{distributional representations}
