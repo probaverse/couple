@@ -15,9 +15,9 @@ cop_parametric(
 \item{.name}{Name of the copula. Specifically, a string with
 the suffix of the \code{p} and \code{d} functions (such as \code{"frk"}).}
 
-\item{...}{Parameters, each its own argument.}
+\item{...}{Parameters, each its own argument, input as name-value pairs.}
 
-\item{.variable}{Type of random variable represented by the distribution;
+\item{.variable}{Type of random variable represented by the copula;
 one of \code{"continuous"}, \code{"discrete"}, \code{"mixed"}, or \code{"unknown"}.
 Warning: defaults to \code{"unknown"}, where density and pmf cannot be evaluated.}
 
@@ -26,15 +26,23 @@ representation, or the name of an environment (or any object that
 can be coerced to an environment with \code{as.environment()}.) Defaults to
 the calling environment.}
 }
+\value{
+A bivariate copula object of class \code{"paramcop"}.
+}
 \description{
 When a copula has \code{p} and \code{d} functions available (such as
 \code{pfrk()}, \code{dfrk()}), \code{cop_parametric()} creates a copula
 that draws on these functions.
 }
+\note{
+This function is anticipating the \code{p} and \code{d} copula functions
+to have its parameters input as a single vector, either named \code{cpar},
+or as the third function argument.
+}
 \examples{
 # Not working yet:
 # d <- cop_parametric("frk", .variable = "continuous")
-# eval_density(d, at = -3:3)
-# eval_pmf(d, at = -3:3, strict = FALSE)
-# eval_hazard(d, at = -3:3)
+# eval_density(d, u = c(0.3, 0.6, 0.5), v = c(0.4, 0.4, 0.9))
+# eval_pmf(d, u = c(0.3, 0.6, 0.5), v = c(0.4, 0.4, 0.9), strict = FALSE)
+# eval_hazard(d, u = c(0.3, 0.6, 0.5), v = c(0.4, 0.4, 0.9))
 }
