@@ -11,6 +11,12 @@ enframe_general(..., u, v, fn_prefix, sep, eval_fn, fn_args = list())
 
 \item{u, v}{Vectors of values to evaluate the copula at.}
 
+\item{fn_prefix}{For \code{enframe_}, name of the function to
+appear in the column(s).}
+
+\item{sep}{When \code{enframe}'ing more than one copula, the
+character that will be separating the \code{fn_name} and the copula name.}
+
 \item{eval_fn}{Name of the \code{eval_} function for the desired distributional
 representation, such as \code{eval_cdf} and \code{eval_density}.}
 

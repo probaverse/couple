@@ -5,13 +5,15 @@
 \alias{enframe_pmf}
 \title{Probability Mass Function}
 \usage{
-eval_pmf(copula, at, strict = TRUE)
+eval_pmf(copula, u, v, strict = TRUE)
 
-enframe_pmf(..., at, fn_prefix = "pmf", sep = "_", strict = TRUE)
+enframe_pmf(..., u, v, fn_prefix = "pmf", sep = "_", strict = TRUE)
 }
 \arguments{
 \item{copula, ...}{A copula, or possibly multiple
 copulas in the case of \code{...}.}
+
+\item{u, v}{Vectors of values to evaluate the copula at.}
 
 \item{strict}{Only evaluate when the pmf exists? \code{TRUE} if so;
 if \code{FALSE}, simply evaluates the probability of the specified outcomes.}
@@ -31,10 +33,11 @@ or tibble form (for \code{enframe_}).
 Access a copula's probability mass function (pmf).
 }
 \examples{
-d <- dst_empirical(1:10)
-eval_pmf(d, at = c(1, 2, 2.5))
-enframe_pmf(d, at = 0:4)
-eval_pmf(dst_norm(0, 1), at = -3:3, strict = FALSE)
+d1 <- cop_ig(20, 4)
+d2 <- cop_igl(1.1)
+eval_pmf(d1, u = 0.4, v = 1:9 / 10, strict = FALSE)
+enframe_pmf(d1, u = 0.4, v = 1:9 / 10, strict = FALSE)
+enframe_pmf(d1, d2, u = 1:9 / 10, v = 1:9 / 10, strict = FALSE)
 }
 \seealso{
 Other distributional representations: 

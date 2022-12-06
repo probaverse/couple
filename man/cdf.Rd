@@ -20,9 +20,6 @@ appear in the column(s).}
 
 \item{sep}{When \code{enframe}'ing more than one copula, the
 character that will be separating the \code{fn_name} and the copula name.}
-
-\item{arg_name}{For \code{enframe_}, name of the column containing
-the function arguments.}
 }
 \value{
 The evaluated cdf in vector form (for \code{eval_}) and data frame
@@ -32,8 +29,8 @@ or tibble form (for \code{enframe_}).
 Access a copula's cumulative distribution function (cdf).
 }
 \examples{
-d1 <- dst_unif(0, 4)
-d2 <- dst_pois(1.1)
+d1 <- cop_ig(20, 4)
+d2 <- cop_igl(1.1)
 eval_cdf(d1, u = 0.4, v = 1:9 / 10)
 enframe_cdf(d1, u = 0.4, v = 1:9 / 10)
 enframe_cdf(d1, d2, u = 1:9 / 10, v = 1:9 / 10)

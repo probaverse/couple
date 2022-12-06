@@ -12,6 +12,10 @@
 #' @param fn_args A named list of arguments to pass to the `eval_fn` function,
 #' besides the copula and `u`, `v` arguments (the `strict` argument
 #' being the most common, and perhaps the only use case).
+#' @param fn_prefix For `enframe_`, name of the function to
+#' appear in the column(s).
+#' @param sep When `enframe`'ing more than one copula, the
+#' character that will be separating the `fn_name` and the copula name.
 #' @return A data frame or tibble of the input arguments (`u`, `v`), with the
 #' evaluated distributional representation for each copula in
 #' `...` in its own column.
@@ -57,7 +61,7 @@ enframe_general <- function(..., u, v, fn_prefix, sep,
     eval_col_names <- paste0(fn_prefix, sep, dist_names)
   }
   names(f) <- eval_col_names
-  arg <- list(u = u, v = v)
+  arg <- list(.u = u, .v = v)
   res <- as.data.frame(c(arg, f))
   convert_dataframe_to_tibble(res)
 }

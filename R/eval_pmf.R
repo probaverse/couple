@@ -9,17 +9,18 @@
 #' in vector form (for `eval_`) and data frame
 #' or tibble form (for `enframe_`).
 #' @examples
-#' d <- dst_empirical(1:10)
-#' eval_pmf(d, at = c(1, 2, 2.5))
-#' enframe_pmf(d, at = 0:4)
-#' eval_pmf(dst_norm(0, 1), at = -3:3, strict = FALSE)
+#' d1 <- cop_ig(20, 4)
+#' d2 <- cop_igl(1.1)
+#' eval_pmf(d1, u = 0.4, v = 1:9 / 10, strict = FALSE)
+#' enframe_pmf(d1, u = 0.4, v = 1:9 / 10, strict = FALSE)
+#' enframe_pmf(d1, d2, u = 1:9 / 10, v = 1:9 / 10, strict = FALSE)
 #' @family distributional representations
 #' @rdname pmf
 #' @export
-eval_pmf <- function(copula, at, strict = TRUE) UseMethod("eval_pmf")
+eval_pmf <- function(copula, u, v, strict = TRUE) UseMethod("eval_pmf")
 
 #' @export
-eval_pmf.dst <- function(copula, at, strict = TRUE) {
+eval_pmf.dst <- function(copula, u, v, strict = TRUE) {
   if (variable(copula) == "discrete") {
     stop("Cannot find the pmf for this copula.")
   }
@@ -28,7 +29,8 @@ eval_pmf.dst <- function(copula, at, strict = TRUE) {
          "Maybe you want to evaluate outside of strict mode?")
   } else {
     if (variable(copula) == "continuous") {
-      return(rep(0, length(at)))
+      l <- vctrs::vec_size_common(u, v)
+      return(rep(0, l))
     } else {
       stop("Cannot find probabilities for this copula.")
     }
@@ -37,9 +39,9 @@ eval_pmf.dst <- function(copula, at, strict = TRUE) {
 
 #' @rdname pmf
 #' @export
-enframe_pmf <- function(..., at, fn_prefix = "pmf",
+enframe_pmf <- function(..., u, v, fn_prefix = "pmf",
                         sep = "_", strict = TRUE) {
-  enframe_general(..., at = at, fn_prefix = fn_prefix,
+  enframe_general(..., u = u, v = v, fn_prefix = fn_prefix,
                   sep = sep, eval_fn = eval_pmf,
                   fn_args = list(strict = strict))
 }

@@ -32,8 +32,8 @@ or tibble form (for \code{enframe_}).
 Access a copula's probability density function (pdf).
 }
 \examples{
-d1 <- dst_ig(20, 4)
-d2 <- dst_igl(1.1)
+d1 <- cop_ig(20, 4)
+d2 <- cop_igl(1.1)
 eval_density(d1, u = 0.4, v = 1:9 / 10)
 enframe_density(d1, u = 0.4, v = 1:9 / 10)
 enframe_density(d1, d2, u = 1:9 / 10, v = 1:9 / 10)
