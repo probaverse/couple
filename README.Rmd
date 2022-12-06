@@ -45,12 +45,19 @@ library(copulary)
 We can evaluate different distributional forms, such as the density or cdf:
 
 ```{r cars}
-# eval_density(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
-# eval_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+eval_density(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+eval_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
 ```
 
 Or, you can enframe the results in a tibble / data frame:
 
 ```{r pressure, echo = FALSE}
-# enframe_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+enframe_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
 ```
+
+Randomly generate data from the copula:
+
+```{r}
+realise(my_copula, n = 5)
+```
+

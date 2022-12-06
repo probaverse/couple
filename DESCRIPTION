@@ -1,10 +1,15 @@
 Package: copulary
-Title: What the Package Does (One Line, Title Case)
+Title: Create and Evaluate Bivariate Copulas
 Version: 0.0.0.9000
-Authors@R: 
-    person("First", "Last", , "first.last@example.com", role = c("aut", "cre"),
-           comment = c(ORCID = "YOUR-ORCID-ID"))
-Description: What the package does (one paragraph).
+Authors@R: c(
+    person("Vincenzo", "Coia", "vcoia@bgcengineering.ca", 
+           role = c("aut", "cre")),
+    person("Mariia", "Morello", role = "ctb")
+    )
+Description: Make bivariate copula objects 
+    (of class "cop"). Evaluate their properties, such as density,
+    cdf, mass, mean, variance, etc., and generate random
+    observations.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0),

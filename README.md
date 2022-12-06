@@ -44,8 +44,31 @@ We can evaluate different distributional forms, such as the density or
 cdf:
 
 ``` r
-# eval_density(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
-# eval_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+eval_density(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+#> [1] 1.0005908 1.0531806 0.9428813
+eval_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
+#> [1] 0.03003158 0.37861680 0.24363783
 ```
 
 Or, you can enframe the results in a tibble / data frame:
+
+    #> # A tibble: 3 × 3
+    #>      .u    .v    cdf
+    #>   <dbl> <dbl>  <dbl>
+    #> 1   0.3   0.1 0.0300
+    #> 2   0.4   0.9 0.379 
+    #> 3   0.6   0.4 0.244
+
+Randomly generate data from the copula:
+
+``` r
+realise(my_copula, n = 5)
+#> # A tibble: 5 × 2
+#>        u     v
+#>    <dbl> <dbl>
+#> 1 0.0568 0.320
+#> 2 0.771  0.727
+#> 3 0.0898 0.232
+#> 4 0.251  0.599
+#> 5 0.789  0.590
+```
