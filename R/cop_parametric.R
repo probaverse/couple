@@ -62,7 +62,8 @@ eval_density.paramcop <- function(copula, u, v, strict = TRUE) {
          "evaluate outside of strict mode?")
   }
   if (v == "discrete") {
-    return(rep(0, length(at)))
+    l <- vctrs::vec_size_common(u, v)
+    return(rep(0, l))
   }
   stop("Evaluating non-strict density for a parametric copula is ",
        "not yet available. Check that your copula's variable type ",

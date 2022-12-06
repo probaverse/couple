@@ -29,6 +29,6 @@ cop_igl <- function(alpha) {
   if (alpha <= 0) {
     stop("alpha must be positive; received ", alpha, ".")
   }
-  cop_parametric("igl", theta = theta, alpha = alpha, .variable = "continuous",
+  cop_parametric("igl", alpha = alpha, .variable = "continuous",
                  .env = "package:igcop")
 }
