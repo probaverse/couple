@@ -26,10 +26,18 @@ representation, or the name of an environment (or any object that
 can be coerced to an environment with \code{as.environment()}.) Defaults to
 the calling environment.}
 }
+\value{
+A bivariate copula object of class \code{"paramcop"}.
+}
 \description{
 When a copula has \code{p} and \code{d} functions available (such as
 \code{pfrk()}, \code{dfrk()}), \code{cop_parametric()} creates a copula
 that draws on these functions.
+}
+\note{
+This function is anticipating the \code{p} and \code{d} copula functions
+to have its parameters input as a single vector, either named \code{cpar},
+or as the third function argument.
 }
 \examples{
 # Not working yet:
