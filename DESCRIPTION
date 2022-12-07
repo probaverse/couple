@@ -16,4 +16,7 @@ Imports:
     igcop,
     rlang,
     stats,
-    vctrs
+    vctrs,
+    testthat,
+    dplyr
+    

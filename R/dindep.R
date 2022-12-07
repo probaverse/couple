@@ -1,5 +1,6 @@
-#' @title density of the independence copula
-#' @description identifies the density of the independence copula,
+#' density of the independence copula
+#'
+#' identifies the density of the independence copula,
 #' 1 everywhere on the unit square, and 0 elsewhere
 #'
 #' @param vector_1 A numeric vector
@@ -11,6 +12,7 @@
 #'
 #' @export
 
+library(dplyr)
 dindep <- function(vector_1, vector_2) {
 
   if ((length(vector_1) == 1) | (length(vector_2) == 1)) {
