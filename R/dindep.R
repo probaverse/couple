@@ -1,14 +1,17 @@
-#' Density of the Independence Copula
+#' The Independence Copula
 #'
-#' Evaluates the density of the independence copula,
-#' 1 everywhere on the unit square, and 0 elsewhere
+#' Density and cdf of the independence copula.
 #'
 #' @param u,v Numeric vectors.
-#' @return A numeric vector.
+#' @return `dindep` gives the density, and `pindep` gives the cdf, both as
+#' numeric vectors.
 #' @examples
 #' dindep(c(1, 0.3, 5, 0.8), c(0.5, 0.7, 3, 8))
 #' dindep(c(0.2, 0.3), 4)
-#'
+#' pindep(c(1, 0.2), 0.5)
+#' pindep(c(-2, 8, NA), c(3, 4, 0.1))
+#' pindep(c(-2, 8), c(4, 0.1))
+#' @rdname indep_funs
 #' @export
 dindep <- function(u, v) {
   if ((length(u) == 0) | (length(v) == 0)) {
