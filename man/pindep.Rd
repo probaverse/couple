@@ -4,23 +4,23 @@
 \alias{pindep}
 \title{Cdf of the independence copula}
 \usage{
-pindep(vector_1, vector_2)
+pindep(u, v)
 }
 \arguments{
-\item{vector_1}{A numeric vector}
+\item{u}{A numeric vector}
 
-\item{vector_2}{A numeric vector}
+\item{v}{A numeric vector}
 }
 \value{
 A numeric vector
 }
 \description{
 Identifies the cdf of the independence copula:
-vector_1 * vector_2 - if both vectors are located on the unit square;
+u * v - if both vectors are located on the unit square;
 1 - if both vectors are larger than 1;
 0 - if one of the vectors is below 0;
-vector_1 value - if vector_2 is larger than 1;
-vector_2 value - if vector_1 is larger than 1
+u value - if v is larger than 1;
+v value - if u is larger than 1
 }
 \examples{
 pindep(c(1, 0.2), c(0.5))
