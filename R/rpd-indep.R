@@ -11,9 +11,12 @@
 #' pindep(c(1, 0.2), 0.5)
 #' pindep(c(-2, 8, NA), c(3, 4, 0.1))
 #' pindep(c(-2, 8), c(4, 0.1))
-#' @rdname indep_funs
+#' @rdname rpd_indep
 #' @export
 dindep <- function(u, v) {
+  if (is.null(u) || is.null(v)) {
+    return(NULL)
+  }
   if ((length(u) == 0) | (length(v) == 0)) {
     return(numeric(0))
   }
@@ -23,3 +26,18 @@ dindep <- function(u, v) {
   as.numeric((0 <= u) & (u <= 1) & (0 <= v) & (v <= 1))
 }
 
+#' @rdname rpd_indep
+#' @export
+pindep <- function(u, v) {
+  if (is.null(u) || is.null(v)) {
+    return(NULL)
+  }
+  if ((length(u) == 0) | (length(v) == 0)) {
+    return(numeric(0L))
+  }
+  vectors_update <- vctrs::vec_recycle_common(u, v)
+  u <- vectors_update[[1]]
+  v <- vectors_update[[2]]
+
+  pmin(1, pmax(0, u)) * pmin(1, pmax(0, v))
+}

@@ -10,13 +10,15 @@ test_that("density evaluates appropriately", {
 })
 
 test_that("cdf evaluates appropriately", {
+  # tests for vectors within unit square
+  expect_equal(pindep(c(0.3, 0.2), c(0.2, 0.3)), c(0.06, 0.06))
   expect_equal(
-    pindep(c(0.1, 0.2, 0.8, 0.9, 0.0, 0.2, 0.2, 1.0,
+    pindep(c(0.0, 0.2, 0.2, 1.0,
              -1, -1,  -1, 0.5, 0.5, 1.5, 1.5, 1.5),
-           c(0.2, 0.5, 0.1, 0.9, 0.2, 0.0, 1.0, 0.2,
+           c(0.2, 0.0, 1.0, 0.2,
              -1, 0.5, 1.5, -1, 1.5, -1,  0.5, 1.5)),
-    c(c(0.1, 0.2, 0.8, 0.9, 0.0, 0.2, 0.2, 1.0) *
-        c(0.2, 0.5, 0.1, 0.9, 0.2, 0.0, 1.0, 0.2),
+    c(c(0.0, 0.2, 0.2, 1.0) *
+        c(0.2, 0.0, 1.0, 0.2),
       0, 0, 0, 0, 0.5, 0, 0.5, 1)
   )
 })
@@ -32,6 +34,10 @@ test_that("NA handling is appropriate", {
   expect_true(all(is.na(na)))
   expect_equal(pindep(NA, 0.4), NA_real_)
   expect_equal(pindep(NA, NA), NA_real_)
+  expect_null(dindep(c(0.3, 0.4), NULL))
+  expect_null(dindep(NULL, c(0.3, 0.4)))
+  expect_null(pindep(c(0.3, 0.4), NULL))
+  expect_null(pindep(NULL, c(0.3, 0.4)))
 })
 
 test_that("empty vector handling is appropriate", {
@@ -47,8 +53,10 @@ test_that("empty vector handling is appropriate", {
 test_that("vector recycling is appropriate", {
   expect_length(dindep(1:10, 1), 10L)
   expect_length(dindep(1, 1:10), 10L)
-  expect_error(dindep(1:2, 1:10))
   expect_length(pindep(1:10, 1), 10L)
   expect_length(pindep(1, 1:10), 10L)
-  expect_error(pindep(1:2, 1:10))
+  expect_error(pindep(c(0.3, 2), c(0.2, 0.5, 0.4)))
+  expect_error(pindep(c(0.3, NA), c(0.2, 0.5, 0.4)))
+  expect_error(dindep(c(0.3, 2), c(0.2, 0.5, 0.4)))
+  expect_error(dindep(c(0.3, NA), c(0.2, 0.5, 0.4)))
 })
