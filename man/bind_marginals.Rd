@@ -22,6 +22,6 @@ Creates a joint distribution object from a copula by binding marginal distributi
 }
 \examples{
 bind_marginals(cop_ig(theta = 1, alpha = 3), mtcars$hp, mtcars$disp)
-bind_marginals(copula_object, rnorm(50, 2), rnorm(50, 15))
+bind_marginals(cop_ig(theta = 1, alpha=2), rnorm(50, 2), rnorm(50, 15))
 
 }
