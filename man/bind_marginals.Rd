@@ -15,7 +15,7 @@ bind_marginals(copula, dst_x, dst_y)
 }
 \value{
 A list with copula, dst_x and dst_y objects with their names retained.
-The list belongs to cop_dst class, which is a class of bi_dst, which is a class of mult_dst.
+The list belongs to cop_dst class, which is a class of bi_dst, which is a class of multi_dst.
 }
 \description{
 Creates a joint distribution object from a copula by binding marginal distributions
