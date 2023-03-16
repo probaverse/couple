@@ -13,6 +13,6 @@
 #'
 #' @export
 bind_marginals <- function(copula, dst_x, dst_y){
-  bivariate_dst <- list(copula = 'copula', dst_x = 'dst_x', dst_y = 'dst_y')
+  bivariate_dst <- list(copula = copula, dst_x = dst_x, dst_y = dst_y)
   structure(bivariate_dst, class = c('cop_dst', 'bi_dst', 'multi_dst'))
 }
