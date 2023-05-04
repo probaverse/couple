@@ -1,19 +1,26 @@
-#' Title: bind_marginals_copula
-#' purpose: Transforms the copula distribution from uniform to its scale values such as m3/s
+#' Make a multivariate distribution through a copula
 #'
-#' @param d1 - the first distribution to compare
-#' @param d2 - the second distribution to compare
-#' @param cop - any copula object of class "bi_cop"
+#' In other words, this function transforms a copula from its uniform scale
+#' to the original scale of the data, such as m3/s.
 #'
-#' @return - cop.d which is a bivariate distribution
+#' @param d1,d2 The first and second marginal distributions to bind.
+#' @param cop A copula object (has class "bicop").
+#'
+#' @return A bivariate probability distribution of class `"bidst_cop"`
 #' @export
-#'
-#' @examples -
-
+#' @examples
+#' d1 <- distionary::dst_norm(0, 1)
+#' d2 <- distionary::dst_exp(1)
+#' bind_marginals(
+#'   d1, d2,
+#'   cop_rvinecopulib("gumbel", rotation = 0, parameters = 2)
+#' )
+#' bind_marginals(
+#'   d1, d2,
+#'   cop_ig(2, 3)
+#' )
 bind_marginals_copula <- function(d1, d2, cop) {
-
-  #cop = cop_rvine_cop_lib output
   cop_d <- list(copula = cop, marginals = list(d1, d2))
-  class(cop_d) <- c("bi_cop_dst", "bi_dist")
+  class(cop_d) <- c("bidst_cop", "bidst", "multidst")
   return(cop_d)
 }
