@@ -19,7 +19,7 @@
 #'   d1, d2,
 #'   cop_ig(2, 3)
 #' )
-bind_marginals_copula <- function(d1, d2, cop) {
+bind_marginals <- function(d1, d2, cop) {
   cop_d <- list(copula = cop, marginals = list(d1, d2))
   class(cop_d) <- c("bidst_cop", "bidst", "multidst")
   return(cop_d)
