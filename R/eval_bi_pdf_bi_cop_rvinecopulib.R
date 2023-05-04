@@ -1,19 +1,24 @@
-#' Title: eval_bi_pdf_bi_cop_rvinecopulib - copula density
+#' Density of an rvinecopulib copula
 #'
-#' @param distribution - output from Cop_rvine_cop_lib (dname, theta, rotation)
-#' @param cop - the parameters for the copula that is the output of Cop_rvine_cop_lib
-#' @param x - the first distribution
-#' @param y - the second distribution
+#' Evaluates the density of a copula from the rvinecopulib package.
 #'
-#' @return - a list of values that is the new density distribution for a pdf
-#' @export -
+#' @param distribution An rvinecopulib copula, as in the output of
+#' `cop_rvinecopulib()`.
+#' @param x,y Vectors of values between 0 and 1 in which to evaluate the
+#' copula density.
 #'
-#' @examples -
-eval_bi_pdf_bi_cop_rvinecopulib <- function(distribution, x, y) {
+#' @return A vector of copula density values.
+#' @examples
+#' cop <- cop_rvinecopulib("frank", rotation = 0, parameters = 2)
+#' eval_bi_density(cop, c(0.2, 0.7, 0.4), 0.2)
+#' @export
+eval_bi_density.bicop_rvinecopulib <- function(distribution, x, y) {
+  xy <- vctrs::vec_recycle_common(x, y)
+  x <- xy[[1]]
+  y <- xy[[2]]
   u <- matrix(c(x, y), ncol = 2)
-  bicop <- rvinecoplib::dbicop(u,
-                            family = distribution$dname,
-                            rotation = distribution$rotation,
-                            parameters = distribution$parameters)
-  return(bicop)
+  rvinecoplib::dbicop(u,
+                      family = distribution$dname,
+                      rotation = distribution$rotation,
+                      parameters = distribution$parameters)
 }

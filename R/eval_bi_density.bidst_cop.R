@@ -1,4 +1,4 @@
-#' Evaluate a bivariate distribution created from a copula
+#' Density of a copula-based bivariate distribution
 #'
 #' @param distribution Bivariate distribution.
 #' @param x,y Vectors of values to evaluate the distribution at.
