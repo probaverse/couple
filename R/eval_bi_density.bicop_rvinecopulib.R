@@ -17,8 +17,8 @@ eval_bi_density.bicop_rvinecopulib <- function(distribution, x, y) {
   x <- xy[[1]]
   y <- xy[[2]]
   u <- matrix(c(x, y), ncol = 2)
-  rvinecoplib::dbicop(u,
-                      family = distribution$dname,
-                      rotation = distribution$rotation,
-                      parameters = distribution$parameters)
+  rvinecopulib::dbicop(u,
+                       family = distribution$dname,
+                       rotation = distribution$rotation,
+                       parameters = distribution$parameters)
 }
