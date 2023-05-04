@@ -7,7 +7,6 @@
 #' @param cop A copula object (has class "bicop").
 #'
 #' @return A bivariate probability distribution of class `"bidst_cop"`
-#' @export
 #' @examples
 #' d1 <- distionary::dst_norm(0, 1)
 #' d2 <- distionary::dst_exp(1)
@@ -19,6 +18,7 @@
 #'   d1, d2,
 #'   cop_ig(2, 3)
 #' )
+#' @export
 bind_marginals <- function(d1, d2, cop) {
   cop_d <- list(copula = cop, marginals = list(d1, d2))
   class(cop_d) <- c("bidst_cop", "bidst", "multidst")
