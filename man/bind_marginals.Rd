@@ -2,26 +2,31 @@
 % Please edit documentation in R/bind_marginals.R
 \name{bind_marginals}
 \alias{bind_marginals}
-\title{Joins a copula with two distributions}
+\title{Make a multivariate distribution through a copula}
 \usage{
-bind_marginals(copula, dst_x, dst_y)
+bind_marginals(d1, d2, cop)
 }
 \arguments{
-\item{copula}{copula object}
+\item{d1, d2}{The first and second marginal distributions to bind.}
 
-\item{dst_x}{marginal distribution}
-
-\item{dst_y}{marginal distribution}
+\item{cop}{A copula object (has class "bicop").}
 }
 \value{
-A list with copula, dst_x and dst_y objects with their names retained.
-The list belongs to cop_dst class, which is a class of bi_dst, which is a class of multi_dst.
+A bivariate probability distribution of class \code{"bidst_cop"}
 }
 \description{
-Creates a joint distribution object from a copula by binding marginal distributions
+In other words, this function transforms a copula from its uniform scale
+to the original scale of the data, such as m3/s.
 }
 \examples{
-bind_marginals(cop_ig(theta = 1, alpha = 3), mtcars$hp, mtcars$disp)
-bind_marginals(cop_ig(theta = 1, alpha=2), distionary::dst_norm(50, 2), distionary::dst_norm(50, 15))
-
+d1 <- distionary::dst_norm(0, 1)
+d2 <- distionary::dst_exp(1)
+bind_marginals(
+  d1, d2,
+  cop_rvinecopulib("gumbel", rotation = 0, parameters = 2)
+)
+bind_marginals(
+  d1, d2,
+  cop_ig(2, 3)
+)
 }
