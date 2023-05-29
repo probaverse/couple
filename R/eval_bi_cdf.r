@@ -21,8 +21,5 @@ eval_bi_cdf <- function(Dist, Marginals, var_types, x, y) {
                                  rotation = Dist[2],
                                  parameters = Dist[3],
                                  var_types = var_types)
-                                 
-  class(copula) <- c("bicop_rvinecopulib", "bicop")
-
   return(copula)
 }
