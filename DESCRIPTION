@@ -12,6 +12,7 @@ Description: couple provides a framework for creating and
     one-dimensional (marginal) distributions via copulas.
 License: MIT + file LICENSE
 Suggests: 
+    covr,
     testthat (>= 3.0.0),
     tibble
 Remotes:
