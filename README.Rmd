@@ -13,51 +13,24 @@ knitr::opts_chunk$set(
 )
 ```
 
-# copulary
+# couple
 
 <!-- badges: start -->
 [![Lifecycle: experimental](https://img.shields.io/badge/lifecycle-experimental-orange.svg)](https://lifecycle.r-lib.org/articles/stages.html#experimental)
 [![CRAN status](https://www.r-pkg.org/badges/version/copulary)](https://CRAN.R-project.org/package=copulary)
 <!-- badges: end -->
 
-copulary:
-
-1. make standard copula families available, like the Frank, Gumbel, Gaussian, and empirical copulas -- and even your own copulas, and
-2. provides a framework for evaluating copulas.
+**couple** provides a framework for creating and evaluating multivariate distributions, by linking one-dimensional (marginal) distributions via copulas. 
 
 ## Installation
 
-You can install the development version of copulary like so:
+**couple** is not yet on CRAN. You can install it from github by executing the following code in your R console:
 
 ``` r
-remotes::install_github("probaverse/copulary")
+remotes::install_github("probaverse/couple")
 ```
+
+If it doesn't work, check that you have the **remotes** package installed, first. 
 
 ## Example
-
-We can make copulas from standard families, such as this Integrated Gamma copula:
-
-```{r example}
-library(copulary)
-(my_copula <- cop_ig(theta = 3, alpha = 4))
-```
-
-We can evaluate different distributional forms, such as the density or cdf:
-
-```{r cars}
-eval_density(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
-eval_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
-```
-
-Or, you can enframe the results in a tibble / data frame:
-
-```{r pressure, echo = FALSE}
-enframe_cdf(my_copula, u = c(0.3, 0.4, 0.6), v = c(0.1, 0.9, 0.4))
-```
-
-Randomly generate data from the copula:
-
-```{r}
-realise(my_copula, n = 5)
-```
 
