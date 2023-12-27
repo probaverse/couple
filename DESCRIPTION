@@ -1,15 +1,15 @@
-Package: copulary
-Title: Create and Evaluate Bivariate Copulas
+Package: couple
+Title: Create and Evaluate Copula-Based Multivariate Distributions
 Version: 0.0.0.9000
 Authors@R: c(
     person("Vincenzo", "Coia", , "vcoia@bgcengineering.ca", 
            role = c("aut", "cre")),
-    person("Mariia", "Morello", role = "ctb")
+    person("Mariia", "Morello", role = "ctb"),
+    person("Chris", "Scarpone", role = "ctb")
     )
-Description: Make bivariate copula objects 
-    (of class "cop"). Evaluate their properties, such as density,
-    cdf, mass, mean, variance, etc., and generate random
-    observations.
+Description: couple provides a framework for creating and 
+    evaluating multivariate distributions, by linking 
+    one-dimensional (marginal) distributions via copulas.
 License: MIT + file LICENSE
 Suggests: 
     testthat (>= 3.0.0),
