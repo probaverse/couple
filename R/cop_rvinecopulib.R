@@ -8,8 +8,8 @@
 #' @examples
 #' cop_rvinecopulib("frank", rotation = 0, parameters = 3)
 #' @export
-cop_rvinecopulib <- function(dist, rotation, parameters) {
-  res <- list(dname = dist, rotation = rotation, parameters = parameters )
+cop_rvinecopulib <- function(dist,  rotation, parameters) {
+  res <- list(dname = dist, rotation = rotation, parameters = parameters)
   class(res) <- c("bicop_rvinecopulib", "bicop")
   #Return list which is the Dist Name, theta, and rotation
   return(res)
