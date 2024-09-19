@@ -7,9 +7,9 @@ Authors@R: c(
     person("Mariia", "Morello", role = "ctb"),
     person("Chris", "Scarpone", role = "ctb")
     )
-Description: couple provides a framework for creating and 
-    evaluating multivariate distributions, by linking 
-    one-dimensional (marginal) distributions via copulas.
+Description: couple enables you to construct realistic multivariate 
+    distributions by combining copulas and univariate distributions, 
+    creating a more nuanced picture of interconnected data.
 License: MIT + file LICENSE
 Suggests: 
     covr,
