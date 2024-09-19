@@ -1,0 +1,26 @@
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>/404.html</loc></url>
+<url><loc>/LICENSE-text.html</loc></url>
+<url><loc>/LICENSE.html</loc></url>
+<url><loc>/authors.html</loc></url>
+<url><loc>/index.html</loc></url>
+<url><loc>/reference/bind_marginals.html</loc></url>
+<url><loc>/reference/cdf.html</loc></url>
+<url><loc>/reference/convert_dataframe_to_tibble.html</loc></url>
+<url><loc>/reference/cop_ig.html</loc></url>
+<url><loc>/reference/cop_parametric.html</loc></url>
+<url><loc>/reference/cop_rvinecopulib.html</loc></url>
+<url><loc>/reference/copula.html</loc></url>
+<url><loc>/reference/density.html</loc></url>
+<url><loc>/reference/enframe_general.html</loc></url>
+<url><loc>/reference/eval_bi_density.bicop_rvinecopulib.html</loc></url>
+<url><loc>/reference/eval_bi_density.bidst_cop.html</loc></url>
+<url><loc>/reference/index.html</loc></url>
+<url><loc>/reference/new_copula.html</loc></url>
+<url><loc>/reference/pmf.html</loc></url>
+<url><loc>/reference/realise.html</loc></url>
+<url><loc>/reference/rpd_indep.html</loc></url>
+<url><loc>/reference/survival.html</loc></url>
+<url><loc>/reference/variable.html</loc></url>
+</urlset>
+
